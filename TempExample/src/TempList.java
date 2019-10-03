@@ -28,5 +28,33 @@ public class TempList {
 		}
 		return sum/temp.size();
 	}
+	
+	static void max(Float temperature, Integer day) {
+		int d=0;
+		
+		for(int i=1;i<temp.size();i++) {
+			if ((float)temp.get(d) > (float)temp.get(i)) {
+				d = i;
+			}
+		}
+		day = d;
+		temperature = (float)temp.get(d);
+		System.out.println(day.intValue()+", "+temperature.floatValue());
+	}
+	
+	static int maxTemp() {
+		int d=0;
+		for(int i=1;i<temp.size();i++) {
+			if ((float)temp.get(d) > (float)temp.get(i)) {
+				d = i;
+			}
+		}
+		
+		return d;
+	}
+	
+	static float getTemp(int index) {
+		return (float)temp.get(index);
+	}
 }
 
