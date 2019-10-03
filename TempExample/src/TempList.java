@@ -1,15 +1,33 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TempList {
 
-	private static ArrayList temp = new ArrayList();
+	private static ArrayList<Float> temp = new ArrayList<>();
 	
 	static void input() {
 		Scanner sc = new Scanner(System.in);
 		for(int i=0;i<5;i++) {
 			System.out.print("T["+(i+1)+"]= ");
 			temp.add(sc.nextFloat());
+		}
+	}
+
+	static void input(String fname) {
+		Scanner sc=null;
+		try {
+			sc = new Scanner(new File(fname));
+			while(sc.hasNextFloat()) {
+				temp.add(sc.nextFloat());
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (sc!=null) {
+			sc.close();
 		}
 	}
 
@@ -24,7 +42,7 @@ public class TempList {
 	static float average() {
 		float sum=0;
 		for(int i=0;i<temp.size();i++) {
-			sum += (float)temp.get(i);
+			sum += temp.get(i);
 		}
 		return sum/temp.size();
 	}
@@ -33,19 +51,19 @@ public class TempList {
 		int d=0;
 		
 		for(int i=1;i<temp.size();i++) {
-			if ((float)temp.get(d) > (float)temp.get(i)) {
+			if (temp.get(d) < temp.get(i)) {
 				d = i;
 			}
 		}
 		day = d;
-		temperature = (float)temp.get(d);
+		temperature = temp.get(d);
 		System.out.println(day.intValue()+", "+temperature.floatValue());
 	}
 	
 	static int maxTemp() {
 		int d=0;
 		for(int i=1;i<temp.size();i++) {
-			if ((float)temp.get(d) > (float)temp.get(i)) {
+			if (temp.get(d) < temp.get(i)) {
 				d = i;
 			}
 		}
@@ -54,7 +72,7 @@ public class TempList {
 	}
 	
 	static float getTemp(int index) {
-		return (float)temp.get(index);
+		return temp.get(index);
 	}
 }
 
