@@ -16,18 +16,13 @@ public class TempList {
 	}
 
 	static void input(String fname) {
-		Scanner sc=null;
-		try {
-			sc = new Scanner(new File(fname));
+		try (Scanner sc = new Scanner(new File(fname))){
 			while(sc.hasNextFloat()) {
 				temp.add(sc.nextFloat());
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		if (sc!=null) {
-			sc.close();
 		}
 	}
 
