@@ -18,8 +18,14 @@ public class Main {
 		System.out.println(TempList.maxTemperature());
 		
 		Scanner sc = new Scanner(System.in);
+		System.out.print("Input string: ");
 		String line = sc.nextLine();
 		System.out.println(reverse(line));
+		
+		System.out.print("Input whole number: ");
+		int number = sc.nextInt();
+		int result = Integer.parseInt(reverse(number+""));
+		System.out.println(result);
 		
 		System.out.println(reverse("hello"));
 	}
