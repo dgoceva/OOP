@@ -42,7 +42,7 @@ public class TempList {
 		return sum/temp.size();
 	}
 	
-	static void max(Float temperature, Integer day) {
+	static void max(MutableFloat temperature, MutableInteger day) {
 		int d=0;
 		
 		for(int i=1;i<temp.size();i++) {
@@ -50,9 +50,9 @@ public class TempList {
 				d = i;
 			}
 		}
-		day = d;
-		temperature = temp.get(d);
-		System.out.println(day.intValue()+", "+temperature.floatValue());
+		day.setData(d);
+		temperature.setData(temp.get(d));
+//		System.out.println(day.getData()+", "+temperature.getData());
 	}
 	
 	static int maxTemp() {
@@ -69,5 +69,20 @@ public class TempList {
 	static float getTemp(int index) {
 		return temp.get(index);
 	}
+	
+	static Temperature maxTemperature() {
+		int d=0;
+		for(int i=1;i<temp.size();i++) {
+			if (temp.get(d) < temp.get(i)) {
+				d = i;
+			}
+		}
+		
+		Temperature value = new Temperature();
+		value.setDay(d);
+		value.setTemp(temp.get(d));
+		return value;
+	}
+
 }
 
