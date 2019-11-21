@@ -18,11 +18,11 @@ public class Main {
 				", day="+dayIndex);
 		System.out.println(TempList.maxTemperature());
 		List<Integer> days = TempList.getMaxTempDays();
-		System.out.println("Days:");
+		System.out.print("Day(s): ");
 		for(int tempDay: days) {
-			System.out.println(tempDay+" ");
+			System.out.print(tempDay+" ");
 		}
-		
+		System.out.println();
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Input string: ");
 		String line = sc.nextLine();

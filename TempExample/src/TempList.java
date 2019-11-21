@@ -90,7 +90,7 @@ public class TempList {
 		int maxTempIndex = maxTemp();
 		
 		for(int i=0;i<temp.size();++i) {
-			if (temp.get(i)==temp.get(maxTempIndex)) {
+			if (temp.get(i).equals(temp.get(maxTempIndex))) {
 				retValue.add(new Integer(i+1));
 			}
 		}
