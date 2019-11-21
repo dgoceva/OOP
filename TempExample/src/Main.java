@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +17,11 @@ public class Main {
 		System.out.println("Max T="+TempList.getTemp(dayIndex)+
 				", day="+dayIndex);
 		System.out.println(TempList.maxTemperature());
+		List<Integer> days = TempList.getMaxTempDays();
+		System.out.println("Days:");
+		for(int tempDay: days) {
+			System.out.println(tempDay+" ");
+		}
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Input string: ");

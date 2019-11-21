@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TempList {
@@ -84,5 +85,16 @@ public class TempList {
 		return value;
 	}
 
+	static List<Integer> getMaxTempDays(){
+		List<Integer> retValue = new ArrayList<>();
+		int maxTempIndex = maxTemp();
+		
+		for(int i=0;i<temp.size();++i) {
+			if (temp.get(i)==temp.get(maxTempIndex)) {
+				retValue.add(new Integer(i+1));
+			}
+		}
+		return retValue;
+	}
 }
 
