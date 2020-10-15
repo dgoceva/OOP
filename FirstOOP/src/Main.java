@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Main {
 
-	public static final int SIZE=365;
+	public static final int SIZE=10;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,6 +18,9 @@ public class Main {
 //		Temperature temp = new Temperature(23.4,8,10,2020);
 //		System.out.println(temp);
 		Temperature[] data = initTemperatures();
+		printTemperatures(data);
+//		sort(data);
+		Arrays.sort(data);
 		printTemperatures(data);
 		}	
 	public static Temperature[] initTemperatures() {
@@ -49,5 +52,16 @@ public class Main {
 				date.get(Calendar.DATE));
 		temp.add(Calendar.DATE, 1);
 		return temp;
+	}
+	public static void sort(Temperature[] data) {
+		for(int i=0;i<data.length;i++) {
+			for(int j=0;j<data.length-i-1;j++) {
+				if (data[j].getTemp()>data[j+1].getTemp()) {
+					Temperature temp = new Temperature(data[j]);
+					data[j]=data[j+1];
+					data[j+1]=temp;
+				}
+			}
+		}
 	}
 }
