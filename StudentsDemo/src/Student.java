@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Student {
 	private int number;
@@ -12,6 +13,11 @@ public class Student {
 		this.number = number;
 		this.name = name;
 		this.avMark = avMark;
+	}
+	public Student(Student st) {
+		this.number = st.number;
+		this.name = st.name;
+		avMark = st.avMark;
 	}
 	public int getNumber() {
 		return number;
@@ -33,8 +39,30 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return "Student [number=" + number + ", name=" + name + ", avMark=" + avMark + "]";
+		return "" + number + ", " + name + ", " + avMark +"\n";
 	}
 	
-	
+	public static Student inputStudent() {
+		Scanner sc = new Scanner(System.in);
+		Student st = new Student();
+		System.out.println("Number= ");
+		st.setNumber(sc.nextInt());
+		System.out.println("Name=");
+		st.setName(sc.next());
+		System.out.println("Average Mark=");
+		st.setAvMark(sc.nextDouble());
+		
+		return st;
+	}
+	public Student inputStudentInfo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Number= ");
+		setNumber(sc.nextInt());
+		System.out.println("Name=");
+		setName(sc.next());
+		System.out.println("Average Mark=");
+		setAvMark(sc.nextDouble());
+		
+		return this;
+	}
 }
