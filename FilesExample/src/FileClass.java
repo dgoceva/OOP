@@ -20,7 +20,7 @@ public class FileClass {
 			while (sc.hasNextLine()) {
 				String temp = sc.nextLine();
 				ArrayList<String> words = new ArrayList<>();
-				words.addAll(Arrays.asList(temp.split(" \t")));
+				words.addAll(Arrays.asList(temp.split(" ")));
 				data.add(words);
 			}
 			sc.close();
@@ -28,6 +28,28 @@ public class FileClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void exchangeWords(int x, int y, int a, int b) {
+		if (x < 1 || x > data.size()) {
+			System.out.println("x is not valid row number");
+			return;
+		}
+		if (y < 1 || y > data.size()) {
+			System.out.println("y is not valid row number");
+			return;
+		}
+		if (a < 1 || a > data.get(x-1).size() || a > data.get(y-1).size()) {
+			System.out.println("a is not valid word number");
+			return;
+		}
+		if (b < 1 || b > data.get(x-1).size() || b > data.get(y-1).size()) {
+			System.out.println("b is not valid word number");
+			return;
+		}
+		String temp = data.get(x-1).get(a-1);
+		data.get(x-1).set(a-1, data.get(y-1).get(b-1));
+		data.get(y-1).set(b-1, temp);
 	}
 
 	public void exchangeRows(int x, int y) {
@@ -41,6 +63,7 @@ public class FileClass {
 		}
 		int start = Math.min(x - 1, y - 1);
 		int end = Math.max(x - 1, y - 1);
+
 //		String temp = data.get(start);
 //		data.set(start, data.get(end));
 //		data.set(end, temp);
@@ -63,8 +86,9 @@ public class FileClass {
 
 		for (ArrayList<String> element : data) {
 			for (String s : element) {
-				str.append(s + "\n");
+				str.append(s + " ");
 			}
+			str.append("\n");
 		}
 		return str.toString();
 	}
