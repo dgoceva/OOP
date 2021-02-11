@@ -13,7 +13,7 @@ import utils.StringUtils;
 class AllStringTests {
 
 	@ParameterizedTest
-	@ValueSource(strings= {"racecar","radar","level","abba","refer","face"})
+	@ValueSource(strings= {"racecar","radar","level","abba","refer"})
 	void testPalindrome(String word) {
 		assertTrue(StringUtils.isPalindrome(word));
 	}
