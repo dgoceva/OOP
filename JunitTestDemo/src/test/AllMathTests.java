@@ -38,4 +38,10 @@ class AllMathTests {
 	void testPossitive1() {
 		assertEquals(MathUtils.possitive(value), List.of(1,2,4));
 	}
+	
+	@Test
+	@DisplayName("test get negative values")
+	void testNegative1() {
+		assertEquals(List.of(-3,-5), MathUtils.negative(value));
+	}
 }

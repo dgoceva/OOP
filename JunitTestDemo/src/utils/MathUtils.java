@@ -25,4 +25,16 @@ public class MathUtils {
 		
 		return result;
 	}
+
+	public static List<Integer> negative(List<Integer> data){
+		List<Integer> result = new ArrayList<>();
+		
+		for(int element : data) {
+			if (element<0) {
+				result.add(element);
+			}
+		}
+		
+		return result;
+	}
 }
