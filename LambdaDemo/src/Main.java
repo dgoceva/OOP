@@ -8,15 +8,17 @@ public class Main {
 		MathOperation multiplication = (a,b) -> {return a*b;};
 		MathOperation division = (int a, int b) -> a/b;
 		
-		System.out.println("10 + 5 = "+addition.operation(10, 5));
-		System.out.println("10 - 5 = "+subtraciton.operation(10, 5));
-		System.out.println("10 * 5 = "+multiplication.operation(10, 5));
-		System.out.println("10 / 5 = "+division.operation(10, 5));
+		System.out.println("10 + 5 = "+operate(10, 5,addition));
+		System.out.println("10 - 5 = "+operate(10, 5,subtraciton));
+		System.out.println("10 * 5 = "+operate(10, 5,multiplication));
+		System.out.println("10 / 5 = "+operate(10, 5,division));
 	}
-
+	private static int operate(int a, int b, MathOperation operation) {
+		return operation.operation(a, b);
+	}
+	@FunctionalInterface
+	interface MathOperation{
+		int operation(int a, int b);
+	}
 }
 
-@FunctionalInterface
-interface MathOperation{
-	int operation(int a, int b);
-}
