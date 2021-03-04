@@ -12,12 +12,10 @@ public class StringLambda {
 		items.add("four");
 		items.add("five");
 		
-		items.forEach(new Consumer<String>() {
-			@Override
-			public void accept(String t) {
-				// TODO Auto-generated method stub
-				System.out.println(t);
-			}
-		});
+		items.forEach(text->{System.out.println(text);});
+		
+//		for(String text : items) {
+//			System.out.println(text);
+//		}
 	}
 }
