@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Consumer;
 
 public class MapLambda {
 	public static void map() {
@@ -12,5 +14,11 @@ public class MapLambda {
 		data.put(5, "five");
 		
 		data.forEach((k,v) -> {System.out.printf("%d: %s%n",k,v);});
+		
+		Consumer<Entry<Integer,String>> action = entry->
+		{
+			System.out.printf("%d: %s%n",entry.getKey(),entry.getValue());
+		};
+		data.entrySet().forEach(action);
 	}
 }

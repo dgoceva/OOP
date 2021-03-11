@@ -5,7 +5,11 @@ public class Main {
 		// TODO Auto-generated method stub
 //		MathLambda.math();
 //		StringLambda.string();
-		MapLambda.map();
+//		MapLambda.map();
+//		SetLambda.set();
+//		ArrayLambda.array();
+//		BuildInConsumers.cons();
+		BuildInConsumers.intCons();
 	}
 
 }
