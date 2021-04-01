@@ -36,6 +36,17 @@ public class CreateNumberStream {
 		
 		IntStream integers = IntStream.of(4,3,1,-1,-5,7,9);
 		integers.boxed().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+		
+		IntStream ints = IntStream.of(4,3,-1,4,3,3,10,11);
+		System.out.println(Arrays.toString(ints.distinct().toArray()));
+
+		ints = IntStream.rangeClosed(1,10);
+		int[] square = ints.map(e->e*e).toArray();
+		System.out.println(Arrays.toString(square));
+		
+		System.out.println(IntStream.range(3, 10).min().getAsInt());
+		System.out.println(IntStream.rangeClosed(3, 10).reduce((a,b)->a*b).getAsInt());
+		System.out.println(IntStream.rangeClosed(3, 10).reduce((a,b)->a+b).getAsInt());
 	}
 	
 	private static boolean isEven(int e) {

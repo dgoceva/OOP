@@ -23,4 +23,8 @@ public class Student {
 	public String toString() {
 		return "Student [number=" + number + ", name=" + name + "]";
 	}
+	
+	public boolean odd() {
+		return number%2 != 0;
+	}
 }

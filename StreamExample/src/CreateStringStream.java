@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -25,7 +27,7 @@ public class CreateStringStream {
 		String number3 = numbers.skip(2).findFirst().get();
 		System.out.println(number3);
 		
-		List<Student> students = Arrays.asList(new Student(12101,"Ivan Ivanov"),
+		List<Student> students = Arrays.asList(new Student(12102,"Ivan Ivanov"),
 				new Student(11103,"Petyr Petrov"),new Student(11201,"Lili Marinova"),
 				new Student(12201,"Georgy Ivanov"),new Student(12104,"Ivan Petrov"));
 		
@@ -34,6 +36,24 @@ public class CreateStringStream {
 
 		students.stream().sorted(Comparator.comparing(Student::getName))
 		.forEach(System.out::println);
-
+		
+		numbers = Stream.of("one","two","three","four","five");
+		numbers.map(n->n.toUpperCase()).forEach(CreateStringStream::output);
+		System.out.println();
+		numbers = Stream.of("one","two","three","four","five");
+		System.out.println(Arrays.toString(numbers.map(CreateStringStream::wordCase).toArray()));
+		
+		List<Integer>numb = students.stream().map(Student::getNumber).
+				filter(n->n%2==0).collect(Collectors.toList());
+		System.out.println(numb); 
+		
+		List<Student> odd = students.stream().filter(Student::odd).collect(Collectors.toList());
+		System.out.println(odd);
+	}
+	private static String wordCase(String word) {
+		return word.substring(0,1).toUpperCase()+word.substring(1).toLowerCase();
+	}
+	private static void output(String word) {
+		System.out.print(word+" ");
 	}
 }
