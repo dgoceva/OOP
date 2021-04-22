@@ -15,7 +15,15 @@ public class Main {
 //			FilesPathsDemo.moveFile();
 //			FilesPathsDemo.readFile();
 //			FilesPathsDemo.writeFile();
-			InputStreamDemo.inputStreamText();
+//			InputStreamDemo.inputStreamText();
+//			FileInputStreamDemo.readChars();
+//			FileInputStreamDemo.readText();
+//			FileInputStreamDemo.readLines();
+//			FileOutputStreamDemo.outputBytes();
+//			FileOutputStreamDemo.appendToFile();
+//			FileOutputStreamDemo.outputEncoding();
+//			InputStreamDemo.readBytes();
+			InputStreamDemo.urlReading();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
