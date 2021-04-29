@@ -23,7 +23,13 @@ public class Main {
 //			FileOutputStreamDemo.appendToFile();
 //			FileOutputStreamDemo.outputEncoding();
 //			InputStreamDemo.readBytes();
-			InputStreamDemo.urlReading();
+//			InputStreamDemo.urlReading();
+//			ObjectOutputStreamDemo.main();
+//			InputObjectStreamDemo.main();
+//			InputStreamDemo.readStreamSequence();
+//			FileReaderDemo.main();
+			FileReaderDemo.readBuffer();
+//		} catch (IOException | ClassNotFoundException e) {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.SequenceInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -57,5 +58,23 @@ public class InputStreamDemo {
 				BufferedReader br = new BufferedReader(new InputStreamReader(is))){
 			br.lines().forEach(System.out::println);
 		}
+	}
+	public static void readStreamSequence() throws FileNotFoundException, IOException {
+		String fname = "src/resources/myfile.txt";
+		String fname1 = "src/resources/myfile1.txt";
+		String fname2 = "src/resources/myfile2.txt";
+		
+		try(SequenceInputStream ss1=new SequenceInputStream(new FileInputStream(fname),new FileInputStream(fname1));
+				SequenceInputStream ss=new SequenceInputStream(ss1,new FileInputStream(fname2))){
+			int b;
+			do {
+				b = ss.read();
+				if (b!=-1) {
+					System.out.printf("%c",b);
+				}
+			}while (b!=-1);
+		}
+		System.out.println();
+		
 	}
 }
