@@ -28,9 +28,13 @@ public class Main {
 //			InputObjectStreamDemo.main();
 //			InputStreamDemo.readStreamSequence();
 //			FileReaderDemo.main();
-			FileReaderDemo.readBuffer();
+//			FileReaderDemo.readBuffer();
+//			FileWriterDemo.main();
+//			ReadZipDemo.main();
+			UnzipDemo.main();
 //		} catch (IOException | ClassNotFoundException e) {
-		} catch (IOException e) {
+//		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
